@@ -1,0 +1,5 @@
+public class Transport{
+    public float speed;
+    public int weight;
+    
+}

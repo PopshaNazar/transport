@@ -1,0 +1,10 @@
+class Main{
+    public static void main(String[] args){
+	Transport bmw = new Transport();
+	bmw.speed = 100;
+	bmw.weight = 123;
+	bmw.color = "white";
+	System.out.println(bmw.speed);
+    }
+
+}
