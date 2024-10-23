@@ -1,8 +1,8 @@
 package trucks;
 
 class Tow {
-    private int loadNr;
-    private String regNr;
+    public int loadNr;
+    public String regNr;
 
     public void addTow(int loadNr, String regNr) {
         this.loadNr = loadNr;
@@ -10,15 +10,16 @@ class Tow {
     }
 
     public String getTow() {
-        String info = "info" + "load: " + loadNr + "\nreg: " + regNr;
+        String info = "info:\n" + "load: " + loadNr + "\nreg: " + regNr;
         return info;
     }
 }
 
 public class Main {
     public static void main(String argv[]) {
-        // Tow tow1 = new Tow();
-        // System.out.println(tow1.getTow());
+        Tow tow1 = new Tow();
+        tow1.addTow(12, "TM777S");
+        System.out.println(tow1.getTow());
 
     }
 }
