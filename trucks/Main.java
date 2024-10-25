@@ -1,66 +1,81 @@
 package trucks;
 
-class Truck {
-    private static int maxTows = 5;
-    private Tow[] tows = new Tow[maxTows];
-    private int towsNr = 0;
+class Cargo {
+    private String ID;
+    private int totalBoxes;
+    private static int startingBoxes = 10;
 
-    public boolean addTow(int loadNr, String regNr) {
-        if (towsNr < maxTows) {
-            tows[towsNr] = new Tow(loadNr, regNr);
-            towsNr++;
-            return true;
-        }
-        return false;
+    public Cargo(String ID, int totalBoxes) {
+        this.ID = ID;
+        this.totalBoxes = totalBoxes;
     }
 
-    public boolean addTow(String regNr) {
-        if (towsNr < maxTows) {
-            tows[towsNr] = Tow;
+    public Cargo(String ID) {
+        this.ID = ID;
+        if (totalBoxes == 0) {
+            this.totalBoxes = startingBoxes;
+            totalBoxes = startingBoxes;
 
-            towsNr++;
-            return true;
+        } else {
+            this.totalBoxes = startingBoxes + 1;
+            startingBoxes = this.totalBoxes;
         }
-        return false;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public int getTotalBoxes() {
+        return totalBoxes;
+    }
+
+    public String toString() {
+        return "R(" + ID + "), totalBoxes: " + totalBoxes;
     }
 }
 
-class Tow {
-    private int loadNr;
-    private String regNr;
+class Truck {
+    private static int MaxCargo = 5;
+    private int countCargo;
+    private Cargo[] cargoList;
 
-    private static int lastLoadNr = 0;
-
-    public void addTow(int loadNr, String regNr) {
-        this.loadNr = loadNr;
-        this.regNr = regNr;
-        lastLoadNr = loadNr;
+    public Truck() {
+        this.cargoList = new Cargo[MaxCargo];
+        countCargo = 0;
     }
 
-    public void addTow(String regNr) {
-        this.regNr = regNr;
-        if (lastLoadNr == 0) {
-            this.loadNr = 10;
-        } else {
-            this.loadNr = lastLoadNr + 1;
+    public boolean addCargo(int totalBoxes, String ID) {
+        if (countCargo < MaxCargo) {
+            cargoList[countCargo++] = new Cargo(ID, totalBoxes);
+            return true;
         }
-        lastLoadNr = this.loadNr;
-
+        return false;
     }
 
-    public String getTow() {
-        String info = "info:\n" + "load: " + loadNr + "\nreg: " + regNr;
-        return info;
+    public boolean addCargo(String ID) {
+        if (countCargo < MaxCargo) {
+            cargoList[countCargo++] = new Cargo(ID);
+            return true;
+        }
+        return false;
+    }
+
+    public String toString() {
+        String result = "T";
+        for (int i = 0; i < countCargo; i++) {
+            result = result + ": " + cargoList[i].toString();
+        }
+        return result;
     }
 }
 
 public class Main {
     public static void main(String args[]) {
-        Truck[] tow = new Truck[5];
-        //Tow tow1 = new Tow();
-        //tow1.addTow(12, "TM777S");
-        //System.out.println(tow1.getTow());
-        for (int i = 0; i < tow.length; i++) {
-            
+        Truck truck1 = new Truck();
+        System.out.print("1st truck: ");
+        truck1.addCargo(20, "TM 76 WWG");
+        truck1.addCargo("TM 777 AO");
+        System.out.println(truck1);
     }
 }
