@@ -1,18 +1,30 @@
 
 Trucks
 
-A truck object consists of a maximum of 5 trailer objects. A truck stores in an array references to the trailer objects it contains at any given time. Each trailer is characterized by an integer representing the number of cargo boxes it can transport and a license plate number (String). For a trailer, there will be two constructors. One will set both characteristics as given through the constructor parameters. The second will only receive the license plate number and will set the number of boxes that can be transported as 1 + the number of boxes of the last trailer object created prior to the current one. If no such object has been created before, the number of boxes will be set to 10. Obviously, a trailer can also contain other elements that you consider necessary.
+A truck object consists of a maximum of 5 trailer objects. A truck stores in an array references to the trailer objects 
+it contains at any given time. Each trailer is characterized by an integer representing the number of cargo boxes it can 
+transport and a license plate number (String). For a trailer, there will be two constructors. One will set both characteristics 
+as given through the constructor parameters. The second will only receive the license plate number and will set the number 
+of boxes that can be transported as 1 + the number of boxes of the last trailer object created prior to the current one. If no 
+such object has been created before, the number of boxes will be set to 10. Obviously, a trailer can also contain other elements 
+that you consider necessary.
+
 
 The following operations can be performed on a truck:
 
-- addTrailer: This method receives as parameters the number of cargo boxes and a license plate number. If there are available positions in the trailer array, a new trailer object is created and added to the truck, and the method returns true. Otherwise, the method returns false.
+- addTrailer: This method receives as parameters the number of cargo boxes and a license plate number. 
+If there are available positions in the trailer array, a new trailer object is created and added to the truck, and the method returns true. Otherwise, the method returns false.
 
-- addTrailer: This method receives a reference to a trailer that is added to the truck’s trailer array at the next available position. If the operation cannot be performed (no more space), the method returns false; otherwise, it returns true.
+- addTrailer: This method receives a reference to a trailer that is added to the truck’s trailer array at the next available position. 
+If the operation cannot be performed (no more space), the method returns false; otherwise, it returns true.
 
-- removeTrailer: This method receives a license plate number for a trailer. If the truck contains a trailer with that license plate number, it will be removed from the truck, and the method returns a reference to the removed trailer object. Otherwise, the method returns null.
+- removeTrailer: This method receives a license plate number for a trailer. If the truck contains a trailer with that license plate number, 
+it will be removed from the truck, and the method returns a reference to the removed trailer object. Otherwise, the method returns null.
 
 - An operation to determine if two trucks are equal, which is true when two trucks can transport the same total number of cargo boxes.
 
-- An operation that returns the truck object representation as a string. It will have the format: T -> R1 -> … -> Rn, where Ri is the string representation of each trailer (in the form R(license_plate, number_of_boxes)) contained in the truck.
+- An operation that returns the truck object representation as a string. It will have the format: T -> R1 -> … -> Rn, where Ri is the string representation of 
+each trailer (in the form R(license_plate, number_of_boxes)) contained in the truck.
 
-A main method (in a separate class) should also be implemented, where at least two distinct trucks are created, and the functionality of each operation with each observable behavior is demonstrated to the client.
+A main method (in a separate class) should also be implemented, where at least two distinct trucks are created, and the functionality of each operation with each 
+observable behavior is demonstrated to the client.
