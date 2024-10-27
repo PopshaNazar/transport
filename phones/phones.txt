@@ -1,0 +1,14 @@
+A phone object is characterized by the owner's name (String) set at the creation of the respective object. 
+A phone also contains an array (possibly with a counter if necessary) that stores the names of phone owners (Strings) who have called that particular phone. 
+For simplicity, this array will hold a maximum of 100 elements.
+
+A phone can perform the following operations:
+
+    + call: This method receives as a parameter a reference to the phone object being called by the current phone. Then, it adds the name of the owner of 
+    the phone on which the method was called to the name list of the phone given as a parameter to this method. If there is no more space in the array, the 
+    call method returns false (indicating that the call failed). Otherwise, the method returns true.
+
+    + numberOfCalls: This method receives as a parameter a String representing a phone owner's name and returns a reference to an Integer object containing the 
+    number of calls made by that person to the current phone.
+
+    + toString: Returns a string containing the owner's name and the names of all the people who have called that particular phone.
