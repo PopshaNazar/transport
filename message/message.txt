@@ -1,0 +1,31 @@
+In a messaging program, various types of message recipients are characterized, among other things,
+ by the operation receive(User, String): void, which represents the fact that a recipient receives 
+ from a sender (first argument) a message as a string (second argument). Details for different types 
+ of recipients are presented as follows.
+
+User: is characterized by a unique name that guarantees identification as a single recipient, set 
+at the time of creation. Two users with the same name are considered equal (the same recipient). 
+A user is characterized by a log that contains a series of strings in which all the sent/received
+ messages are accumulated/concatenated by that user. Also, a user is characterized by the operation
+  send(User, String): void, which adds to the log of the users involved a string in the form "Sent 
+  to name_of_recipient: message". The user indicated as the first argument will be the sender, and 
+  the string of the message indicated as the second argument will be the content. Similarly, the 
+  recipient's receive method receives the sender's name as the first argument and the string content 
+  of the message as the second. When a user receives a message, it is recorded in their log as a string
+ of the form "Received from name_of_sender: message". A user also has an appropriate method for 
+ representing their log as a string in the form "user_name: each string in the user's log on a new line."
+
+Group: representing a sequence of any number of recipients of any type and in any combination, stored 
+in the state of the object. A group is characterized by a unique name that guarantees identification as
+ a single recipient, set at the time of creation. Two groups with the same name are considered equal (the same recipient).
+  A recipient can be added to a group through the enroll(Recipient): void method. A name can only be added directly once 
+  (note: to simplify, if this recipient is added to the sequence of the group, not within any subgroups). If the recipient
+   already exists in the group, adding them again will throw an exception called DuplicateRecipient. When the group receives 
+   a message, each member of the group receives that message (but none of the members should know who sent it or that it was 
+   a group message), applying the corresponding method using the sender's name and the string as arguments for the receive method 
+   of the group.
+
+A main function and a testing method will be implemented to exemplify the functionality. Users "Dan", "Marius", and "Alex" 
+will be created along with the group "Carnivores," which includes these users. An attempt will be made to add "Alex" twice,
+ displaying an appropriate message. Then, "Alex" sends the message "We opened the store" to the group. Then "Marius" sends 
+ the message "I'm coming now," after which the logs of each user are displayed to the standard output.
