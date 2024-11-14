@@ -1,7 +1,6 @@
-package employee;
+package part1.employee;
 
 class Firm {
-    private int budget;
     private String nameFirm;
 
     private static int MaxEmp = 30;
@@ -9,7 +8,6 @@ class Firm {
     private int count = 0;
 
     public Firm(String nameFirm, int budget) {
-        this.budget = budget;
         this.nameFirm = nameFirm;
         this.empList = new Employee[MaxEmp];
     }

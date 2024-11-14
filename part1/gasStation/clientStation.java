@@ -1,4 +1,4 @@
-package gasStation;
+package part1.gasStation;
 
 class gasStation {
     private int Fuel;

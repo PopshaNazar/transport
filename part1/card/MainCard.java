@@ -1,4 +1,4 @@
-package card;
+package part1.card;
 
 class Card {
     private String name;

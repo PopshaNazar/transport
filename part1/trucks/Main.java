@@ -1,4 +1,4 @@
-package trucks;
+package part1.trucks;
 
 class Cargo {
     private String ID;
