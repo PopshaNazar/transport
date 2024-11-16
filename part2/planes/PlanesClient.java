@@ -36,8 +36,12 @@ class AvionCalatori extends Plane {
         this.MaxPassengers = MaxPassengers;
     }
 
+    public int getMaxPassengers() {
+        return MaxPassengers;
+    }
+
     public void SuperSonic() {
-        System.out.println(getPlaneID() + "SuperSonic activated");
+        System.out.println(getPlaneID() + "SuperSonic activated, max passengers" + getMaxPassengers() + ": ");
     }
 
     public void SubSonic() {
