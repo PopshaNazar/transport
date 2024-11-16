@@ -1,7 +1,5 @@
 package weight;
 
-import java.time.chrono.MinguoChronology;
-
 abstract class Weight {
     private int capacity;
 
@@ -37,10 +35,6 @@ class DoubleWeight {
     private SimpleWeight w2;
 
     public DoubleWeight(SimpleWeight w1, SimpleWeight w2) {
-        setDoubleWeight(w1, w2);
-    }
-
-    public void setDoubleWeight(SimpleWeight w1, SimpleWeight w2) {
         this.w1 = w1;
         this.w2 = w2;
     }
@@ -63,28 +57,71 @@ class DoubleWeight {
 
 }
 
-class MultipleWeight {
-    private MultipleWeight mw1;
-    private MultipleWeight mw2;
-    private DoubleWeight dw1;
-    private DoubleWeight dw2;
-    private SimpleWeight w1;
-    private SimpleWeight w2;
+class ComplexWeight {
+    private Weight[] weights;
 
-    public MultipleWeight(SimpleWeight w1, SimpleWeight w2) {
-        DoubleWeight(w1, w2);
+    public ComplexWeight(Weight[] weights) {
+        this.weights = weights;
     }
 
-    public MultipleWeight(DoubleWeight dw1, DoubleWeight dw2) {
-        this.dw1 = dw1;
-        this.dw2 = dw2;
+    public int getSize() {
+        int totalSize = 0;
+        for (int i = 0; i < weights.length; i++) {
+            totalSize += weights[i].getCapacity();
+        }
+        return totalSize;
+    }
+}
+// private MultipleWeight mw1;
+// private MultipleWeight mw2;
+// private DoubleWeight dw1;
+// private DoubleWeight dw2;
+// private SimpleWeight w1;
+// private SimpleWeight w2;
+
+// public MultipleWeight(SimpleWeight w1, SimpleWeight w2) {
+// this.w1 = w1;
+// this.w2 = w2;
+// }
+// public MultipleWeight(DoubleWeight dw1, DoubleWeight dw2) {
+// this.dw1 = dw1;
+// this.dw2 = dw2;
+// }
+// public MultipleWeight(MultipleWeight mw1, MultipleWeight mw2) {
+// this.mw1 = mw1;
+// this.mw2 = mw2;
+// }
+// public MultipleWeight(SimpleWeight w1, DoubleWeight dw2) {
+// this.w1 = w1;
+// this.dw2 = dw2;
+// }
+// public MultipleWeight(SimpleWeight w1, MultipleWeight mw2) {
+// this.w1 = w1;
+// this.mw2 = mw2;
+// }
+class Gym {
+    private Weight[] weights;
+    private int nrWeights;
+
+    public Gym(int maxWeights) {
+        this.weights = new Weight[maxWeights];
+        this.nrWeights = 0;
     }
 
-    public MultipleWeight(SimpleWeight w1, DoubleWeight dw2) {
-        this.w1 = w1;
-        this.dw2 = dw2;
+    public void addWeight(Weight weight) {
+        if (nrWeights < weights.length) {
+            weights[nrWeights] = weight;
+            nrWeights++;
+        }
     }
 
+    public double averageSize() {
+        int totalCapacity = 0;
+        for (int i = 0; i < nrWeights; i++) {
+            totalCapacity += weights[i].getCapacity();
+        }
+        return (double) totalCapacity / nrWeights;
+    }
 }
 
 public class WeightClient {
