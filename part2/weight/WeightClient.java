@@ -129,10 +129,13 @@ public class WeightClient {
         SimpleWeight W1 = new SimpleWeight(12);
         SimpleWeight W2 = new SimpleWeight(13);
         DoubleWeight DW1 = new DoubleWeight(W1, W2);
-
+        Gym gym = new Gym(10);
         System.out.println(W1);
         System.out.println(W2);
         System.out.println(DW1);
+        gym.addWeight(W1);
+        gym.addWeight(W2);
+        System.out.println("gym: " + gym.averageSize());
 
     }
 }
